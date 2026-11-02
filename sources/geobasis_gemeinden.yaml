@@ -1,0 +1,45 @@
+# Gemeinden Brandenburg aus dem INSPIRE-WFS Verwaltungseinheiten der LGB (Geobasis Brandenburg) in die
+# MOSIDI-Tabelle "Kommunale Gebiete Brandenburg (InNoWest)", gespeichert in EPSG:4326 (THB-Antworten 7 und 54).
+name: geobasis_gemeinden
+typ: wfs
+url: https://inspire.brandenburg.de/services/au_bdlm_wfs
+layer: au:AdministrativeUnit
+version: "2.0.0"
+# Der Dienst kann nicht seitenweise liefern (ImplementsResultPaging=FALSE, gemessen 2026-11-02): ein Abruf.
+# Große Gemeindepolygone kommen langsam, daher das Zeitlimit.
+zeitlimit: 1800
+crs_quelle: 25833
+objekt_id: gml_id
+attribute:
+  identifier: identifier
+  name: name.GeographicalName.spelling.SpellingOfName.text
+  ags: nationalCode
+  inspireid: inspireId.Identifier.localId
+  ebene: nationalLevel
+  ebene_name: nationalLevelName.LocalisedCharacterString
+  land: country.Country
+  beginn: beginLifespanVersion
+  oberebene: upperLevelUnit
+  unterebene: lowerLevelUnit
+filter: {ebene_name: Kommunales Gebiet}  # der Dienst liefert auch Land und Kreise
+rhythmus_tage: 30
+ziel:
+  tabelle: Kommunale Gebiete Brandenburg (InNoWest)
+  geometrie_spalte: geom
+  spalten:
+    id: "@zeile"
+    identifier: identifier
+    name: name
+    nationalco: ags
+    inspireid: inspireid
+    nationalle: ebene
+    national_1: ebene_name
+    country: land
+    beginlifes: beginn
+    upperlevel: oberebene
+    lowerlevel: unterebene
+  metadaten:
+    dct_title: Kommunale Gebiete Brandenburg
+    dct_description: Gemeinden Brandenburg aus den INSPIRE-Verwaltungseinheiten (ATKIS Basis-DLM) der LGB
+    dct_catalog_publisher: Landesvermessung und Geobasisinformation Brandenburg (LGB)
+    dct_accrualperiodicity: monatlich

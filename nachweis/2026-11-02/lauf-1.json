@@ -1,0 +1,58 @@
+{
+  "lauf_id": 1,
+  "version": "0.2.0",
+  "start": "2026-11-02T16:24:31+00:00",
+  "ende": "2026-11-02T16:28:13+00:00",
+  "laufzeit_s": 221.5,
+  "ausloeser": "manuell",
+  "probelauf": false,
+  "quellen": [
+    {
+      "name": "geobasis_gemeinden",
+      "typ": "wfs",
+      "adresse": "https://inspire.brandenburg.de/services/au_bdlm_wfs",
+      "ziel": "Kommunale Gebiete Brandenburg (InNoWest)",
+      "zeitstempel": "2026-11-02T16:24:31+00:00",
+      "status": "erfolgreich",
+      "gemeldet": 432,
+      "vollstaendig": true,
+      "gefiltert": 19,
+      "gelesen": 413,
+      "neu": 413,
+      "geaendert": 0,
+      "geloescht": 0,
+      "unveraendert": 0,
+      "ersetzt": true,
+      "warnungen": [
+        "Dienst unterstützt kein seitenweises Abrufen (ImplementsResultPaging=FALSE): ein Abruf ohne Seiten"
+      ],
+      "rohdaten": [
+        "sha256:165b5f33346f00e0cb604dd0e3ae7426edd614665473a1fd8a7565be12993d9c /app/data/raw/geobasis_gemeinden/lauf-1/seite-0001.xml.gz"
+      ],
+      "dauer_s": 5.3
+    },
+    {
+      "name": "inkar_gemeinden",
+      "typ": "csv",
+      "adresse": "https://www.bbr-server.de/imagemap/inkar/download/inkar_2025.zip",
+      "ziel": "dashboard_data_de",
+      "zeitstempel": "2026-11-02T16:24:36+00:00",
+      "status": "erfolgreich",
+      "gemeldet": 63426864,
+      "vollstaendig": true,
+      "gefiltert": 62141090,
+      "gelesen": 1285774,
+      "neu": 1285774,
+      "geaendert": 0,
+      "geloescht": 0,
+      "unveraendert": 0,
+      "ersetzt": true,
+      "warnungen": [],
+      "rohdaten": [
+        "sha256:82f6923a4bdce8f3d084a65574f5b8781391fa8a1a608ab4f366ca903b485bcc /app/data/raw/inkar_gemeinden/lauf-1/inkar_2025.zip"
+      ],
+      "dauer_s": 216.2
+    }
+  ],
+  "status": "erfolgreich"
+}

@@ -1,0 +1,32 @@
+# Prototype stack shaped like MOSIDI: database service brandenburg_db (postgis/postgis without a fixed version,
+# as in MOSIDI, THB answer 53) with MOSIDI's three tables, and the pipeline with the same POSTGRES_* variables as
+# the MOSIDI backend. docker compose up -d brandenburg_db; docker compose run --rm geoimport run;
+# docker compose run --rm test. For MOSIDI itself see docker-compose.mosidi.yml.
+x-db: &db
+  POSTGRES_HOST: brandenburg_db
+  POSTGRES_DB: brandenburg
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nur-fuer-den-prototyp}
+services:
+  brandenburg_db:
+    image: postgis/postgis
+    environment: *db
+    volumes:
+      - ./tests/mosidi_tabellen.sql:/docker-entrypoint-initdb.d/10-mosidi.sql:ro
+      - ./tests/initdb.sql:/docker-entrypoint-initdb.d/20-test.sql:ro
+    healthcheck:
+      # TCP, not the socket: during initdb the image runs a socket-only server that would pass too early
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "postgres", "-d", "brandenburg"]
+      interval: 2s
+      retries: 60
+  geoimport:
+    build: .
+    environment: *db
+    volumes: ["./sources:/app/sources:ro", "./reports:/app/reports", "./data:/app/data"]
+    command: ["dienst", "--intervall", "3600"]
+    depends_on: { brandenburg_db: { condition: service_healthy } }
+  test:
+    build: .
+    entrypoint: ["python", "-m", "pytest", "-q", "tests"]
+    environment: { <<: *db, DATABASE_URL: "postgresql://postgres:${POSTGRES_PASSWORD:-nur-fuer-den-prototyp}@brandenburg_db:5432/test" }
+    depends_on: { brandenburg_db: { condition: service_healthy } }

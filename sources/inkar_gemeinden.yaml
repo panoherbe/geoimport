@@ -1,0 +1,19 @@
+# INKAR (BBSR) auf Gemeindeebene für Brandenburg in die MOSIDI-Tabelle dashboard_data_de, Zeilen mit source = INKAR.
+# Die Gesamtdatei ist ein ZIP mit 434 MB (Deflate64), entpackt 6,6 GB; sie wird als Datenstrom gelesen. Ist sie
+# seit dem letzten Lauf unverändert (gleiche SHA-256), wird sie nicht neu eingelesen.
+name: inkar_gemeinden
+typ: csv
+pfad: https://www.bbr-server.de/imagemap/inkar/download/inkar_2025.zip
+zip_eintrag: "inkar_*.csv"
+zeitlimit: 1800
+trennzeichen: ";"
+objekt_id: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]  # Schlüssel laut THB-Antwort 31
+filter: {Raumbezug: Gemeinden, Kennziffer: "12*"}  # Brandenburg; ohne Kennziffer-Filter ganz Deutschland
+dezimalkomma: [Wert]
+rhythmus_tage: 30  # INKAR und AfS ändern sich höchstens monatlich (THB-Antwort 37)
+ziel:
+  tabelle: dashboard_data_de
+  quelle_spalte: source
+  quelle_wert: INKAR
+  spalten: {indikator: Kuerzel, kennziffer: Kennziffer, wert: Wert, zeitbezug: Zeitbezug}
+  feste_werte: {granularity: Gemeindeebene}

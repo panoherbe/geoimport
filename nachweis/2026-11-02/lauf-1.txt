@@ -1,0 +1,4 @@
+Importlauf 1 · 2026-11-02T16:24:31+00:00 · 221.5 s · manuell
+  geobasis_gemeinden (wfs) → Kommunale Gebiete Brandenburg (InNoWest): 413 gelesen, 413 neu, 0 geändert, 0 entfernt, 0 unverändert, ersetzt (5.3 s)
+    Warnung: Dienst unterstützt kein seitenweises Abrufen (ImplementsResultPaging=FALSE): ein Abruf ohne Seiten
+  inkar_gemeinden (csv) → dashboard_data_de: 1285774 gelesen, 1285774 neu, 0 geändert, 0 entfernt, 0 unverändert, ersetzt (216.2 s)
