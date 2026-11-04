@@ -24,7 +24,7 @@ from geoimport.sources import FetchResult, checksum, fetch_csv, fetch_wfs, match
 
 POLY = "{x} 5800000 {x1} 5800000 {x1} 5800100 {x} 5800000"
 MOSIDI_SQL = Path(__file__).with_name("mosidi_tabellen.sql")
-GEBIETE = "Kommunale Gebiete Brandenburg (InNoWest)"
+GEBIETE = "Kommunale Gebiete Brandenburg"
 
 
 def gml(features: list[tuple[str, str]], matched: int | str, start: int, count: int) -> bytes:

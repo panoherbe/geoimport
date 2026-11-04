@@ -1,11 +1,11 @@
--- Minimal target tables for the tests and the prototype stack, written for this repository. Table and column names
--- follow the platform MOSIDI (open-source project MOSIDI-ORG/MOSIDI) so the pipeline writes where the platform reads;
--- only the columns the pipeline, its configuration and its tests use are defined. The binding schema is the
--- platform's own.
+-- Minimal target tables for the tests and the prototype stack, written for this repository. Column names follow the
+-- platform MOSIDI (open-source project MOSIDI-ORG/MOSIDI); only the columns the pipeline, its configuration and its
+-- tests use are defined. Table names are set per installation in sources/*.yaml (ziel.tabelle). The binding schema
+-- is the platform's own.
 CREATE EXTENSION IF NOT EXISTS postgis;
 
 -- municipalities (geometry source geobasis_gemeinden)
-CREATE TABLE "Kommunale Gebiete Brandenburg (InNoWest)" (
+CREATE TABLE "Kommunale Gebiete Brandenburg" (
     id NUMERIC PRIMARY KEY,
     geom geometry(MULTIPOLYGON, 4326),
     identifier VARCHAR(254),

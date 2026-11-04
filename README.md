@@ -92,7 +92,7 @@ Ein Prototyp, gebaut, um zu zeigen, dass der Ansatz an echten Quellen trägt. Ke
 
 | Heute noch nicht enthalten | Was ein Auftrag ergänzen würde |
 |---|---|
-| Das verbindliche Schema der Zielplattform; die Tests nutzen eine eigene, minimale Tabellendefinition mit den Tabellen- und Spaltennamen der Plattform (`tests/mosidi_tabellen.sql`) | Abgleich mit dem Schema, das der Betreiber bereitstellt |
+| Das verbindliche Schema der Zielplattform; die Tests nutzen eine eigene, minimale Tabellendefinition nach dem Vorbild der Plattform (`tests/mosidi_tabellen.sql`) | Abgleich mit dem Schema, das der Betreiber bereitstellt, und dessen Tabellennamen in den Quelldateien |
 | Suche nach dem neuesten INKAR-Jahrgang; Import der Indikator-Beschreibungen (`dashboard_data_metadata`) | beides ergänzen |
 | Weitere Quellen | je Quelle eine Konfigurationsdatei, mit Test |
 | Wiederholte Elemente gleichen Namens im GML werden zusammengefasst (der letzte Wert gilt) | nach Bedarf der Quellen |
@@ -145,7 +145,8 @@ Exit-Code 0 = alle Quellen erfolgreich, 1 = mindestens eine fehlgeschlagen.
 
 ### In MOSIDI einbinden
 
-Ordner nach `services/geoimport` kopieren, dann mit der vorhandenen `.env`:
+Ordner nach `services/geoimport` kopieren und in `sources/geobasis_gemeinden.yaml` unter `ziel.tabelle` den Namen der
+Gemeindetabelle der Plattform eintragen, dann mit der vorhandenen `.env`:
 
 ```bash
 docker compose -f docker-compose.yml -f services/geoimport/docker-compose.mosidi.yml up -d geoimport

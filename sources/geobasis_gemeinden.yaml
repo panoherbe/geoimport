@@ -1,5 +1,6 @@
 # Gemeinden Brandenburg aus dem INSPIRE-WFS Verwaltungseinheiten der LGB (Geobasis Brandenburg) in die
-# MOSIDI-Tabelle "Kommunale Gebiete Brandenburg (InNoWest)", gespeichert in EPSG:4326 (Vorgabe der Zielplattform).
+# Gemeindetabelle der Plattform, gespeichert in EPSG:4326 (Vorgabe der Zielplattform). In einer bestehenden
+# Installation steht unter ziel.tabelle der Name ihrer Gemeindetabelle.
 name: geobasis_gemeinden
 typ: wfs
 url: https://inspire.brandenburg.de/services/au_bdlm_wfs
@@ -24,7 +25,7 @@ attribute:
 filter: {ebene_name: Kommunales Gebiet}  # der Dienst liefert auch Land und Kreise
 rhythmus_tage: 30
 ziel:
-  tabelle: Kommunale Gebiete Brandenburg (InNoWest)
+  tabelle: Kommunale Gebiete Brandenburg
   geometrie_spalte: geom
   spalten:
     id: "@zeile"

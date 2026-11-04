@@ -11,7 +11,7 @@
       "name": "geobasis_gemeinden",
       "typ": "wfs",
       "adresse": "https://inspire.brandenburg.de/services/au_bdlm_wfs",
-      "ziel": "Kommunale Gebiete Brandenburg (InNoWest)",
+      "ziel": "Kommunale Gebiete Brandenburg",
       "zeitstempel": "2026-11-02T16:24:31+00:00",
       "status": "erfolgreich",
       "gemeldet": 432,

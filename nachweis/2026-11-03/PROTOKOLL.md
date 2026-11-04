@@ -1,3 +1,5 @@
+> Text am 04.11.2026 nachgebessert: Name der Zieltabelle in den Berichten dieses Ordners gekürzt; Zahlen unverändert.
+
 # Nachlauf geoimport 0.2, 03.11.2026 (Tests auch am 04.11.2026)
 
 Zweck: prüfen, ob ein frischer Lauf am Folgetag dieselben Zahlen liefert wie die Messung vom 02.11.2026
