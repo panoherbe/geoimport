@@ -1,4 +1,4 @@
-# Addition to the MOSIDI Compose file (THB answer 36): the pipeline as one more service next to backend, with the
+# Addition to the MOSIDI Compose file: the pipeline as one more service next to backend, with the
 # same .env and the same database service brandenburg_db. Copy this folder to services/geoimport, then:
 #   docker compose -f docker-compose.yml -f services/geoimport/docker-compose.mosidi.yml up -d geoimport
 #   docker compose -f docker-compose.yml -f services/geoimport/docker-compose.mosidi.yml run --rm geoimport run

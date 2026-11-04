@@ -1,6 +1,6 @@
 """Replace one source's rows in its target table, in one transaction, and log what changed.
 
-The target tables belong to the platform and keep their structure (THB answers 6, 27 and 47): the pipeline deletes
+The target tables belong to the platform and keep their structure (a requirement of the target platform): the pipeline deletes
 the rows of one source and inserts the new delivery. New, changed and removed objects are computed in SQL against
 pipeline_meta.objekt_stand, so the target tables need no history columns and a delivery of millions of rows never
 has to fit into memory.

@@ -1,5 +1,5 @@
 # Prototype stack shaped like MOSIDI: database service brandenburg_db (postgis/postgis without a fixed version,
-# as in MOSIDI, THB answer 53) with MOSIDI's three tables, and the pipeline with the same POSTGRES_* variables as
+# as in MOSIDI's own Compose file) with MOSIDI's three tables, and the pipeline with the same POSTGRES_* variables as
 # the MOSIDI backend. docker compose up -d brandenburg_db; docker compose run --rm geoimport run;
 # docker compose run --rm test. For MOSIDI itself see docker-compose.mosidi.yml.
 x-db: &db

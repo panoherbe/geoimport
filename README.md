@@ -59,7 +59,7 @@ Messweg und Umgebung: [Testprotokoll vom 02.11.2026](nachweis/2026-11-02/PROTOKO
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="medien/bild-kontrollkarte.png" alt="Karte der 413 Gemeinden Brandenburgs, eingefärbt nach dem Durchschnittsalter der Bevölkerung 2023, aus der Datenbank nach dem Import"><br><sub>Kontrolle aus der Datenbank: alle 413 Gemeinden mit Geometrie, eingefärbt mit einem INKAR-Wert (Durchschnittsalter 2023). Die Karte prüft den Import; die Pipeline selbst zeichnet keine Karten. Gemeindegrenzen: © GeoBasis-DE/LGB; Indikator: INKAR 2025, BBSR Bonn.</sub></td>
+<td width="50%" valign="top"><img src="medien/bild-kontrollkarte.png" alt="Karte der 413 Gemeinden Brandenburgs, eingefärbt nach dem Durchschnittsalter der Bevölkerung 2023, aus der Datenbank nach dem Import"><br><sub>Kontrolle aus der Datenbank: alle 413 Gemeinden mit Geometrie, eingefärbt mit einem INKAR-Wert (Durchschnittsalter 2023). Die Karte prüft den Import; die Pipeline selbst zeichnet keine Karten. Gemeindegrenzen: © GeoBasis-DE/LGB, dl-de/by-2-0 (Daten geändert); Indikator: INKAR 2025, © BBSR Bonn 2025, dl-de/by-2-0.</sub></td>
 <td width="50%" valign="top"><img src="medien/bild-lauf1.png" alt="Terminal mit dem Bericht des ersten Importlaufs: 413 Gemeinden und 1.285.774 INKAR-Zeilen neu, Warnung zum Kartendienst"><br><sub>Bericht des ersten Laufs (02.11.2026): 413 Gemeinden und 1.285.774 INKAR-Werte neu, in 222 s. Die Warnung: Der Kartendienst kann nicht seitenweise liefern, also holt die Pipeline alles in einem Abruf.</sub><br><br><img src="medien/bild-lauf2.png" alt="Terminal mit dem Bericht des zweiten Laufs: alles unverändert, Zieltabellen nicht angefasst"><br><sub>Zweiter Lauf direkt danach: nichts geändert, nichts überschrieben, 11 s.</sub></td>
 </tr>
 </table>
@@ -159,6 +159,19 @@ INKAR`). Unter `ziel` stehen Tabelle, Quellenspalte, Geometriespalte, Spaltenabb
 Nummer, `@objekt_id` für den Schlüssel), feste Werte und Metadaten. Unbekannte oder fehlende Schlüssel meldet die
 Pipeline vor dem ersten Abruf.
 
+### Daten und Lizenzen
+
+- **Gemeindegrenzen:** WFS „Verwaltungseinheiten“ (INSPIRE, ATKIS Basis-DLM) der Landesvermessung und
+  Geobasisinformation Brandenburg, `https://inspire.brandenburg.de/services/au_bdlm_wfs`. © GeoBasis-DE/LGB,
+  dl-de/by-2-0 (Daten geändert: auf Gemeinden gefiltert, nach EPSG:4326 umgerechnet; für die Kontrollkarte
+  vereinfacht). Lizenz: [Datenlizenz Deutschland – Namensnennung – Version 2.0](https://www.govdata.de/dl-de/by-2-0),
+  so angegeben in den Nutzungsbedingungen des Dienstes (GetCapabilities, `AccessConstraints`, gelesen am 04.11.2026).
+- **Indikatoren:** INKAR 2025 (Indikatoren und Karten zur Raum- und Stadtentwicklung), © BBSR Bonn 2025,
+  dl-de/by-2-0 ([Nutzungshinweise des BBSR](https://www.bbsr.bund.de/BBSR/DE/service/nutzungshinweise/_node.html),
+  [www.bbsr.bund.de](https://www.bbsr.bund.de), gelesen am 04.11.2026). Daten geändert: auf die Gemeinden
+  Brandenburgs gefiltert. Stammen einzelne Indikatoren von Dritten, gelten zusätzlich deren Bedingungen.
+- Die Rohdaten sind nicht Teil des Repositorys; `geoimport run` lädt sie von den Quellen.
+
 ### Rundgang und Bilder
 
 Die Berichte im Terminal sind die Dateien `nachweis/2026-11-02/lauf-1.txt` und `lauf-2.txt`, im Rundgang mit ihrer
@@ -167,4 +180,4 @@ echten Laufzeit im Zeitraffer abgespielt. Die Kontrollkarte stammt aus der Daten
 Indikatoren; unter fremder Last dauerte Lauf 1 an diesem Tag 669 s). Aufgenommen mit Playwright (Chromium), Untertitel
 in die Seite gezeichnet, ohne Ton. Die Schlusskarte wurde am 04.11.2026 nach dem Lizenzwechsel ersetzt.
 
-Lizenz: AGPL-3.0 (bis Commit `b036e57` Apache-2.0). Daten: Gemeindegrenzen © GeoBasis-DE/LGB; INKAR 2025, BBSR Bonn.
+Lizenz: AGPL-3.0 (bis Commit `b036e57` Apache-2.0). Daten: siehe „Daten und Lizenzen“.

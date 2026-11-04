@@ -7,10 +7,10 @@ pfad: https://www.bbr-server.de/imagemap/inkar/download/inkar_2025.zip
 zip_eintrag: "inkar_*.csv"
 zeitlimit: 1800
 trennzeichen: ";"
-objekt_id: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]  # Schlüssel laut THB-Antwort 31
+objekt_id: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]  # Schlüssel einer INKAR-Zeile: Gebiet, Bereich, Indikator, Jahr
 filter: {Raumbezug: Gemeinden, Kennziffer: "12*"}  # Brandenburg; ohne Kennziffer-Filter ganz Deutschland
 dezimalkomma: [Wert]
-rhythmus_tage: 30  # INKAR und AfS ändern sich höchstens monatlich (THB-Antwort 37)
+rhythmus_tage: 30  # Abrufrhythmus in Tagen: monatlich
 ziel:
   tabelle: dashboard_data_de
   quelle_spalte: source

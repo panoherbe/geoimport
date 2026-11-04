@@ -1,4 +1,4 @@
--- Pipeline bookkeeping in its own schema (THB answers 29 and 47). The platform's tables are never altered: the
+-- Pipeline bookkeeping in its own schema, apart from the platform's tables. Those are never altered: the
 -- pipeline only replaces the rows of one source in them.
 CREATE EXTENSION IF NOT EXISTS postgis;
 CREATE SCHEMA IF NOT EXISTS pipeline_meta;
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS pipeline_meta.objekt_stand (
     PRIMARY KEY (quelle, schluessel)
 );
 
--- change log per run (THB answers 25, 30, 51: a protocol per run, no versions in the target tables)
+-- change log per run (one protocol per run; the target tables carry no versions)
 CREATE TABLE IF NOT EXISTS pipeline_meta.aenderung (
     import_lauf bigint NOT NULL REFERENCES pipeline_meta.import_lauf(id),
     quelle      text NOT NULL,
