@@ -23,7 +23,7 @@ Rundgangs weiter unten.</sub>
 | Läuft in der vorhandenen Plattform | im Compose eines frischen MOSIDI-Klons gestartet: 413 Gemeinden neu in 5 s, zweiter Lauf unverändert in 5 s (02.11.2026) |
 | Neue Quellen ohne Programmierung | eine lesbare YAML-Datei je Quelle: Adresse, Filter, Schlüssel, Zieltabelle |
 | Geprüfte Qualität | 9 automatische Tests grün, Einheiten- und Ende-zu-Ende-Tests gegen PostGIS (02.11.2026; am 03.11.2026 erneut 9 grün) |
-| Offen und übergabefähig | Quellcode unter Apache 2.0, Python, Dokumentation auf Deutsch |
+| Offen und übergabefähig | Quellcode unter AGPL-3.0, Python, Dokumentation auf Deutsch |
 
 Messweg und Umgebung: [Testprotokoll vom 02.11.2026](nachweis/2026-11-02/PROTOKOLL.md) mit den Berichten beider Läufe
 ([Lauf 1](nachweis/2026-11-02/lauf-1.txt), [Lauf 2](nachweis/2026-11-02/lauf-2.txt)).
@@ -53,7 +53,7 @@ Messweg und Umgebung: [Testprotokoll vom 02.11.2026](nachweis/2026-11-02/PROTOKO
   Verbindung zwischen beiden Quellen.
 - **Weniger Risiko bei der Lieferung:** Datenmodell, Ablauf, Fehlerverhalten und Tests stehen; der Auftrag geht in
   Ihre Quellen, Ihre Plattform und die Übergabe.
-- **Keine Bindung an einen Anbieter:** offener Quellcode (Apache 2.0) und Dokumentation auf Deutsch.
+- **Keine Bindung an einen Anbieter:** offener Quellcode (AGPL-3.0) und Dokumentation auf Deutsch.
 
 ## So sieht es aus
 
@@ -81,7 +81,7 @@ Messweg und Umgebung: [Testprotokoll vom 02.11.2026](nachweis/2026-11-02/PROTOKO
 | 0:40 | Eine Quelle ist eine lesbare Datei: Adresse, Filter, Schlüssel, Zieltabelle. Neue Quellen brauchen keinen neuen Code. |
 | 0:45 | **Was die Pipeline nie tut:** nie halb (ersetzt wird nur nach vollständigem Abruf, in einer Transaktion) · nie zu viel (nicht, wenn dabei mehr als 20 % einer Quelle entfallen würden) · nie alles (eine ausgefallene Quelle stoppt nur sich selbst) · nie still (je Lauf ein Bericht; neu, geändert, entfernt je Objekt im Protokoll). |
 | 0:50 | **Gemessen am 02.11.2026:** 9 Tests grün · 222 s für 413 Gemeinden und 1.285.774 INKAR-Werte im ersten Lauf · 11 s im zweiten Lauf, alles unverändert · 5 s für die 413 Gemeinden im Compose eines frischen MOSIDI-Klons. |
-| 0:56 | **Selbst prüfen:** Quellcode, Tests, Berichte und Testprotokoll liegen offen. Starten mit Docker: zwei Befehle. Apache 2.0. |
+| 0:56 | **Selbst prüfen:** Quellcode, Tests, Berichte und Testprotokoll liegen offen. Starten mit Docker: zwei Befehle. AGPL-3.0. |
 
 </details>
 
@@ -96,6 +96,10 @@ Ein Prototyp, gebaut, um zu zeigen, dass der Ansatz an echten Quellen trägt. Ke
 | Weitere Quellen | je Quelle eine Konfigurationsdatei, mit Test |
 | Wiederholte Elemente gleichen Namens im GML werden zusammengefasst (der letzte Wert gilt) | nach Bedarf der Quellen |
 | Übergabe in die Plattform mit Betriebs- und Entwicklerdokumentation | Einbau in Ihre Plattform, Dokumentation und Übergabe |
+
+## Lizenz
+
+Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`b036e57`](https://github.com/panoherbe/geoimport/tree/b036e57) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz.
 
 ## Kontakt
 
@@ -161,6 +165,6 @@ Die Berichte im Terminal sind die Dateien `nachweis/2026-11-02/lauf-1.txt` und `
 echten Laufzeit im Zeitraffer abgespielt. Die Kontrollkarte stammt aus der Datenbank eines erneuten Laufs am
 03.11.2026 auf demselben Server (gleiche Zahlen wie am 02.11.2026: 413 Gemeinden, 1.285.774 INKAR-Zeilen, 264
 Indikatoren; unter fremder Last dauerte Lauf 1 an diesem Tag 669 s). Aufgenommen mit Playwright (Chromium), Untertitel
-in die Seite gezeichnet, ohne Ton.
+in die Seite gezeichnet, ohne Ton. Die Schlusskarte wurde am 04.11.2026 nach dem Lizenzwechsel ersetzt.
 
-Lizenz: Apache 2.0. Daten: Gemeindegrenzen © GeoBasis-DE/LGB; INKAR 2025, BBSR Bonn.
+Lizenz: AGPL-3.0 (bis Commit `b036e57` Apache-2.0). Daten: Gemeindegrenzen © GeoBasis-DE/LGB; INKAR 2025, BBSR Bonn.

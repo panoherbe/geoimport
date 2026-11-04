@@ -2,7 +2,7 @@
 name = "geoimport"
 version = "0.2.0"
 description = "Import pipeline for WFS and CSV geodata into PostgreSQL/PostGIS, replacing one source at a time in the platform tables, with a change log and a report per run (prototype)"
-license = "Apache-2.0"
+license = "AGPL-3.0-only"
 requires-python = ">=3.12"
 dependencies = ["psycopg[binary]>=3.2", "pyyaml>=6"]
 
