@@ -1,0 +1,3 @@
+# geoimport: docker compose run --rm test, 2026-11-04T02:56:56Z, Commit 97964c0 + eigene tests/mosidi_tabellen.sql
+.........                                                                [100%]
+9 passed in 9.13s

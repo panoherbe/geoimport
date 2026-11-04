@@ -16,17 +16,18 @@ Rundgangs weiter unten.</sub>
 |---|---|
 | Daten aus Kartendiensten (WFS) übernehmen | Gemeindegrenzen aus dem WFS der Geobasis Brandenburg: 413 Gemeinden, MULTIPOLYGON, EPSG:4326, zusammen 29.653 km² (02.11.2026) |
 | Große Statistik-Tabellen (CSV) übernehmen | INKAR 2025 des BBSR, ZIP-Datei mit 434 MB, als Datenstrom gelesen: 63.426.864 Zeilen geprüft, 1.285.774 für die Gemeinden Brandenburgs übernommen, 264 Indikatoren, 1995–2024 (02.11.2026) |
-| Beide Quellen passen zusammen | 413 von 413 INKAR-Gemeinden finden ihre Geometrie über den Gemeindeschlüssel (02.11.2026; am 03.11.2026 erneut 413 von 413) |
+| Beide Quellen passen zusammen | 413 von 413 INKAR-Gemeinden finden ihre Geometrie über den Gemeindeschlüssel (02.11.2026; am 03.11.2026 erneut 413 von 413, [Nachlauf](nachweis/2026-11-03/PROTOKOLL.md)) |
 | Die vorhandenen Tabellen der Plattform bleiben, wie sie sind | schreibt in die drei bestehenden Tabellen des Datenmodells MOSIDI und ersetzt nur die Zeilen der eigenen Quelle |
 | Aktualisieren, ohne etwas kaputt zu machen | zweiter Lauf 11 s: alles unverändert, keine Zieltabelle angefasst (02.11.2026); ersetzt wird nur nach vollständigem Abruf und nie, wenn mehr als 20 % einer Quelle entfallen würden |
 | Nachvollziehbarkeit | jede Lieferung mit SHA-256 abgelegt, bevor sie gelesen wird; Bericht je Lauf; neu, geändert, entfernt je Objekt im Änderungsprotokoll |
 | Läuft in der vorhandenen Plattform | im Compose eines frischen MOSIDI-Klons gestartet: 413 Gemeinden neu in 5 s, zweiter Lauf unverändert in 5 s (02.11.2026) |
 | Neue Quellen ohne Programmierung | eine lesbare YAML-Datei je Quelle: Adresse, Filter, Schlüssel, Zieltabelle |
-| Geprüfte Qualität | 9 automatische Tests grün, Einheiten- und Ende-zu-Ende-Tests gegen PostGIS (02.11.2026; am 03.11.2026 erneut 9 grün) |
+| Geprüfte Qualität | 9 automatische Tests grün, Einheiten- und Ende-zu-Ende-Tests gegen PostGIS (02.11.2026; erneut 9 grün am 03.11. und 04.11.2026, [Nachlauf](nachweis/2026-11-03/PROTOKOLL.md)) |
 | Offen und übergabefähig | Quellcode unter AGPL-3.0, Python, Dokumentation auf Deutsch |
 
 Messweg und Umgebung: [Testprotokoll vom 02.11.2026](nachweis/2026-11-02/PROTOKOLL.md) mit den Berichten beider Läufe
-([Lauf 1](nachweis/2026-11-02/lauf-1.txt), [Lauf 2](nachweis/2026-11-02/lauf-2.txt)).
+([Lauf 1](nachweis/2026-11-02/lauf-1.txt), [Lauf 2](nachweis/2026-11-02/lauf-2.txt)). Nachlauf am 03.11.2026 mit
+denselben Zahlen: [nachweis/2026-11-03](nachweis/2026-11-03/PROTOKOLL.md).
 
 ## In zwei Minuten selbst prüfen
 
@@ -91,7 +92,7 @@ Ein Prototyp, gebaut, um zu zeigen, dass der Ansatz an echten Quellen trägt. Ke
 
 | Heute noch nicht enthalten | Was ein Auftrag ergänzen würde |
 |---|---|
-| Das verbindliche Schema der Zielplattform; die Tabellendefinitionen stammen aus dem öffentlichen MOSIDI-Repository (`tests/mosidi_tabellen.sql`) | Abgleich mit dem Schema, das der Betreiber bereitstellt |
+| Das verbindliche Schema der Zielplattform; die Tests nutzen eine eigene, minimale Tabellendefinition mit den Tabellen- und Spaltennamen der Plattform (`tests/mosidi_tabellen.sql`) | Abgleich mit dem Schema, das der Betreiber bereitstellt |
 | Suche nach dem neuesten INKAR-Jahrgang; Import der Indikator-Beschreibungen (`dashboard_data_metadata`) | beides ergänzen |
 | Weitere Quellen | je Quelle eine Konfigurationsdatei, mit Test |
 | Wiederholte Elemente gleichen Namens im GML werden zusammengefasst (der letzte Wert gilt) | nach Bedarf der Quellen |
@@ -154,7 +155,7 @@ docker compose -f docker-compose.yml -f services/geoimport/docker-compose.mosidi
 ### Neue Quelle
 
 Eine YAML-Datei in `sources/`. Beispiele: `geobasis_gemeinden.yaml` (WFS der Geobasis Brandenburg →
-„Kommunale Gebiete Brandenburg (InNoWest)“) und `inkar_gemeinden.yaml` (INKAR → `dashboard_data_de`, `source =
+Gemeindetabelle der Plattform) und `inkar_gemeinden.yaml` (INKAR → `dashboard_data_de`, `source =
 INKAR`). Unter `ziel` stehen Tabelle, Quellenspalte, Geometriespalte, Spaltenabbildung (`@zeile` für eine laufende
 Nummer, `@objekt_id` für den Schlüssel), feste Werte und Metadaten. Unbekannte oder fehlende Schlüssel meldet die
 Pipeline vor dem ersten Abruf.
@@ -177,7 +178,7 @@ Pipeline vor dem ersten Abruf.
 Die Berichte im Terminal sind die Dateien `nachweis/2026-11-02/lauf-1.txt` und `lauf-2.txt`, im Rundgang mit ihrer
 echten Laufzeit im Zeitraffer abgespielt. Die Kontrollkarte stammt aus der Datenbank eines erneuten Laufs am
 03.11.2026 auf demselben Server (gleiche Zahlen wie am 02.11.2026: 413 Gemeinden, 1.285.774 INKAR-Zeilen, 264
-Indikatoren; unter fremder Last dauerte Lauf 1 an diesem Tag 669 s). Aufgenommen mit Playwright (Chromium), Untertitel
+Indikatoren; [Nachlauf](nachweis/2026-11-03/PROTOKOLL.md)). Aufgenommen mit Playwright (Chromium), Untertitel
 in die Seite gezeichnet, ohne Ton. Die Schlusskarte wurde am 04.11.2026 nach dem Lizenzwechsel ersetzt.
 
 Lizenz: AGPL-3.0 (bis Commit `b036e57` Apache-2.0). Daten: siehe „Daten und Lizenzen“.
