@@ -4,7 +4,7 @@
 
 Zweck: prüfen, ob ein frischer Lauf am Folgetag dieselben Zahlen liefert wie die Messung vom 02.11.2026
 (`nachweis/2026-11-02/`). Umgebung wie dort: Linux-Server (Ubuntu), Docker Compose, `postgis/postgis` ohne
-Versionsangabe; Code Stand `de14357` (0.2.0); Quellen WFS der Geobasis Brandenburg und INKAR 2025.
+Versionsangabe; Code Stand `9a16ec1` (0.2.0); Quellen WFS der Geobasis Brandenburg und INKAR 2025.
 
 | Schritt | Ergebnis |
 |---|---|

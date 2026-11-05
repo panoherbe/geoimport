@@ -100,7 +100,7 @@ Ein Prototyp, gebaut, um zu zeigen, dass der Ansatz an echten Quellen trägt. Ke
 
 ## Lizenz
 
-Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`b036e57`](https://github.com/panoherbe/geoimport/tree/b036e57) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz.
+Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`8c364c3`](https://github.com/panoherbe/geoimport/tree/8c364c3) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz.
 
 ## Kontakt
 
@@ -182,4 +182,4 @@ echten Laufzeit im Zeitraffer abgespielt. Die Kontrollkarte stammt aus der Daten
 Indikatoren; [Nachlauf](nachweis/2026-11-03/PROTOKOLL.md)). Aufgenommen mit Playwright (Chromium), Untertitel
 in die Seite gezeichnet, ohne Ton. Die Schlusskarte wurde am 04.11.2026 nach dem Lizenzwechsel ersetzt.
 
-Lizenz: AGPL-3.0 (bis Commit `b036e57` Apache-2.0). Daten: siehe „Daten und Lizenzen“.
+Lizenz: AGPL-3.0 (bis Commit `8c364c3` Apache-2.0). Daten: siehe „Daten und Lizenzen“.
